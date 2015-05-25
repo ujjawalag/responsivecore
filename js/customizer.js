@@ -16,4 +16,29 @@
 			$( '.site-description' ).text( to );
 		} );
 	} );
+	wp.customize( 'home_headline', function( value ) {
+		value.bind( function( to ) {
+			$( '.featured-title' ).text( to );
+		} );
+	} );
+	wp.customize( 'home_subheadline', function( value ) {
+		value.bind( function( to ) {
+			$( '.featured-subtitle' ).text( to );
+		} );
+	} );
+	wp.customize( 'home_content_area', function( value ) {
+		value.bind( function( to ) {
+			$( '#featured-content > p' ).text( to );
+		} );
+	} );
+	wp.customize( 'cta_url', function( value ) {
+		value.bind( function( to ) {
+			$( '.call-to-action > a' ).attr('href', to );
+		} );
+	} );
+	wp.customize( 'cta_text', function( value ) {
+		value.bind( function( to ) {
+			$( '.call-to-action > a' ).text( to );
+		} );
+	} );
 } )( jQuery );

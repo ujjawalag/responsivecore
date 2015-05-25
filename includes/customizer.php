@@ -60,25 +60,6 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'text'
 	) );
 
-/*--------------------------------------------------------------
-	// Logo Upload
---------------------------------------------------------------*/
-
-	$wp_customize->add_section( 'logo_upload', array(
-		'title'                 => __( 'Logo Upload', 'responsive' ),
-		'priority'              => 30
-	) );
-	$wp_customize->add_setting( 'logo_upload_img', array( 'default' => '') );
-	$wp_customize->add_control( 'res_logo_upload_img', array(
-		'label'                 => __( 'Custom Header', 'responsive' ),
-		'section'               => 'logo_upload',
-		'settings'              => 'logo_upload_img',
-		'type'                  => 'hidden',
-		'description'           => __( 'Need to replace or remove default logo?', 'responsive' ) . sprintf( ' <a href="%s">' . __( 'Click here', 'responsive' ) . '</a>.',
-				                   admin_url( 'themes.php?page=custom-header' ) )
-	) );
-
-
 
 /*--------------------------------------------------------------
 	// Home Page
@@ -94,30 +75,30 @@ function responsive_customize_register( $wp_customize ) {
 		'section'               => 'home_page',
 		'settings'              => 'front_page',
 		'type'                  => 'checkbox',
-		'description'           => sprintf( __( 'Overrides the WordPress %1sfront page option%2s', 'responsive' ), '<a href="options-reading.php">', '</a>' )
+		'description'           => sprintf( __( 'Overrides the WordPress %1sfront page option%2s', 'responsive' ) )
 	) );
-	$wp_customize->add_setting( 'home_headline', array( 'default' => __( 'Hello, World!', 'responsive' )) );
+	$wp_customize->add_setting( 'home_headline', array( 'transport' => 'postMessage','default' => __( 'Hello, World!', 'responsive' )) );
 	$wp_customize->add_control( 'res_home_headline', array(
 		'label'                 => __( 'Headline', 'responsive' ),
 		'section'               => 'home_page',
 		'settings'              => 'home_headline',
 		'type'                  => 'text'
 	) );
-	$wp_customize->add_setting( 'home_subheadline', array( 'default' => __( 'Your H2 subheadline here', 'responsive' )) );
+	$wp_customize->add_setting( 'home_subheadline', array( 'transport' => 'postMessage','default' => __( 'Your H2 subheadline here', 'responsive' )) );
 	$wp_customize->add_control( 'res_home_subheadline', array(
 		'label'                 => __( 'Subheadline', 'responsive' ),
 		'section'               => 'home_page',
 		'settings'              => 'home_subheadline',
 		'type'                  => 'text'
 	) );
-	$wp_customize->add_setting( 'home_content_area', array( 'default' => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' )) );
+	$wp_customize->add_setting( 'home_content_area',array( 'default' => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ), 'transport' => 'postMessage') );
 	$wp_customize->add_control( 'res_home_content_area', array(
 		'label'                 => __( 'Content Area', 'responsive' ),
 		'section'               => 'home_page',
 		'settings'              => 'home_content_area',
 		'type'                  => 'textarea'
 	) );	
-	$wp_customize->add_setting( 'cta_url', array( 'default' => '#nogo') );
+	$wp_customize->add_setting( 'cta_url', array( 'default' => '#nogo','transport' => 'postMessage') );
 	$wp_customize->add_control( 'res_cta_url', array(
 		'label'                 => __( 'Call to Action (URL)', 'responsive' ),
 		'section'               => 'home_page',
@@ -125,7 +106,7 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'text'
 	) );
 
-	$wp_customize->add_setting( 'cta_text', array( 'default' => 'Call to Action') );
+	$wp_customize->add_setting( 'cta_text', array( 'default' => 'Call to Action','transport' => 'postMessage') );
 	$wp_customize->add_control( 'res_cta_text', array(
 		'label'                 => __( 'Call to Action (Text)', 'responsive' ),
 		'section'               => 'home_page',

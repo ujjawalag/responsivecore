@@ -162,7 +162,7 @@ function responsive_install_plugins() {
 	}
 
 }
-add_action( 'tgmpa_register', 'responsive_install_plugins' );
+// add_action( 'tgmpa_register', 'responsive_install_plugins' );
 
 /*
  * Add notification to Reading Settings page to notify if Custom Front Page is enabled.
